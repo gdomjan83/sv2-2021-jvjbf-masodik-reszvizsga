@@ -17,19 +17,26 @@ public class Words {
     }
 
     public boolean isThereAWordTwice() {
-        boolean isThereTwice = false;
         for (int i = 0; i < words.size(); i++) {
-            for (int j = i + 1; j < words.size() - 1; j++) {
-                if (words.get(i).equals(words.get(j))) {
-                    isThereTwice = true;
-                }
+            if (isSameWord(i, words.get(i))) {
+                return true;
+
             }
         }
-        return isThereTwice;
+        return false;
+    }
+
+    private boolean isSameWord(int wordIndex, String wordToCompare) {
+        for (int j = wordIndex + 1; j < words.size() - 1; j++) {
+            if (wordToCompare.equals(words.get(j))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean isOneWord(String word) {
-        if (word.indexOf(" ") == -1) {
+        if (word.trim().indexOf(" ") == -1) {
             return true;
         }
         throw new IllegalArgumentException("It should be one word!");
