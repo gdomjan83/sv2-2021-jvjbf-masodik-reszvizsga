@@ -1,0 +1,36 @@
+package city;
+
+public abstract class Building {
+    private int area;
+    private int levels;
+    private Address address;
+
+    public Building(int area, Address address) {
+        this.area = area;
+        this.address = address;
+        this.levels = 1;
+    }
+
+    public Building(int area, int levels, Address address) {
+        this(area, address);
+        this.levels = levels;
+    }
+
+    public int getArea() {
+        return area;
+    }
+
+    public int getLevels() {
+        return levels;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public int getFullArea() {
+        return levels * area;
+    }
+
+    public abstract int calculateNumberOfPeopleCanFit();
+}
