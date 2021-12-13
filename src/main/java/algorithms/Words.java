@@ -20,7 +20,6 @@ public class Words {
         for (int i = 0; i < words.size(); i++) {
             if (isSameWord(i, words.get(i))) {
                 return true;
-
             }
         }
         return false;
